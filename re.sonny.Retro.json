@@ -1,7 +1,7 @@
 {
-  "app-id": "re.sonny.Retro",
+  "id": "re.sonny.Retro",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "43",
+  "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
   "command": "re.sonny.Retro",
   "finish-args": [
@@ -12,32 +12,46 @@
   ],
   "modules": [
     {
-      "name": "blueprint-compiler",
+      "name": "libportal",
       "buildsystem": "meson",
-      "cleanup": [
-        "*"
+      "config-opts": [
+        "-Dtests=false",
+        "-Dbackend-gtk3=disabled",
+        "-Dbackend-gtk4=enabled",
+        "-Dbackend-qt5=disabled",
+        "-Ddocs=false"
       ],
       "sources": [
         {
           "type": "git",
+          "url": "https://github.com/flatpak/libportal.git",
+          "commit": "7c408fbaac7eaad5359a78083ac04cc2abd06674"
+        }
+      ]
+    },
+    {
+      "name": "blueprint-compiler",
+      "buildsystem": "meson",
+      "cleanup": ["*"],
+      "sources": [
+        {
+          "type": "git",
           "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-          "tag": "v0.4.0",
-          "commit": "75a6d95988736ec0471d22ceb07579c0cedac2ad"
+          "tag": "v0.12.0"
         }
       ]
     },
     {
       "name": "gjspack",
       "buildsystem": "simple",
-      "subdir": "gjspack",
       "build-commands": [
-        "./bin/gjspack --appid=gjspack src/cli.js /app/bin"
+        "cd ./gjspack && ./bin/gjspack --appid=gjspack src/cli.js /app/bin"
       ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/sonnyp/troll.git",
-          "commit": "12a42a5afc8c6c26d3d782ea75b1e1372a0e8f36"
+          "commit": "94ced56f1b08e6955f6c8325a04c74736d39b823"
         }
       ]
     },
@@ -64,8 +78,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Retro.git",
-          "tag": "v1.0",
-          "commit": "b6455bd2c1468c8a1f500901efb29ce25b4bc120"
+          "tag": "v2.0",
+          "commit": "3a3416d2600264b4214e8affaffa970cd092cfb4"
         }
       ]
     }
