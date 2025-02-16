@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Retro",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "command": "re.sonny.Retro",
   "finish-args": [
@@ -32,7 +32,9 @@
     {
       "name": "blueprint-compiler",
       "buildsystem": "meson",
-      "cleanup": ["*"],
+      "cleanup": [
+        "*"
+      ],
       "sources": [
         {
           "type": "git",
@@ -51,7 +53,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/troll.git",
-          "commit": "94ced56f1b08e6955f6c8325a04c74736d39b823"
+          "commit": "da080c77c6e4fe75034fc8246170cff64fcfec47"
         }
       ]
     },
@@ -78,8 +80,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Retro.git",
-          "tag": "v2.0",
-          "commit": "3a3416d2600264b4214e8affaffa970cd092cfb4"
+          "tag": "v2.1",
+          "commit": "f8ddf3906c7915b6ea0040c067dd52e8212804df"
         }
       ]
     }
